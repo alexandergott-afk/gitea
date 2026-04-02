@@ -84,6 +84,7 @@ func Index(ctx *context.Context) {
 		})
 	}
 
+	ctx.Resp.Header().Set("Content-Type", "text/yaml; charset=utf-8")
 	ctx.Resp.WriteHeader(http.StatusOK)
 	_ = yaml.NewEncoder(ctx.Resp).Encode(&Index{
 		APIVersion: "v1",
